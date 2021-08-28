@@ -8,7 +8,7 @@ function handleGetData(event) {
     $.ajax({url:`https://pokeapi.co/api/v2/pokemon/${$input.val()}`}).then(
         function(data) {
             pokeData = data
-            // clear()
+            clear()
             render()
         },
 
