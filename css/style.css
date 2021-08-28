@@ -1,0 +1,15 @@
+nav {
+    background-color: crimson;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    padding: 10px 50px;
+    font-size: 20px;
+}
+
+nav a:hover {
+    background-color: tomato;
+}
