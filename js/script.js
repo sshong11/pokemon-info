@@ -22,8 +22,8 @@ function render() {
     $('#parent').append(`<img src="${pokeData.sprites.front_default}" id="poster">`)
     $('#parent').append(`<div>NO. ${pokeData.id}</div>`)
     $('#parent').append(`<div>NAME: ${capitalize(pokeData.name)}</div>`)
-    $('#parent').append(`<div>HEIGHT: ${pokeData.height * 10} cm</div>`)
-    $('#parent').append(`<div>WEIGHT: ${(pokeData.weight / 4.536).toFixed(2)} lbs</div>`)
+    $('#parent').append(`<div>HEIGHT: ${(pokeData.height * 10 / 30.48).toFixed(2)} feet | ${(pokeData.height * 10 )} cm</div>`)
+    $('#parent').append(`<div>WEIGHT: ${(pokeData.weight / 4.536).toFixed(2)} lbs | ${(pokeData.weight / 10)} kg</div>`)
     abilitiesRender(pokeData.abilities)
     movesRender(pokeData.moves)
 }
