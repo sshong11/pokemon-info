@@ -27,6 +27,11 @@ nav a:hover {
     background-color: tomato;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .sticky {
     position: fixed;
     top: 0;
@@ -51,4 +56,8 @@ main {
 
 h2 {
     margin: auto;
+}
+
+div {
+    padding: 15px 0px 0px 0px;
 }
