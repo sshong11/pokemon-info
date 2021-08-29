@@ -5,7 +5,7 @@ $input = $('input[type="text"]')
 function handleGetData(event) {
     event.preventDefault()
 
-    $.ajax({url:`https://pokeapi.co/api/v2/pokemon/${$input.val()}`}).then(
+    $.ajax({url:`https://pokeapi.co/api/v2/pokemon/${$input.val().toLowerCase()}`}).then(
         function(data) {
             pokeData = data
             clear()
@@ -21,9 +21,9 @@ function handleGetData(event) {
 function render() {
     $('#parent').append(`<img src="${pokeData.sprites.front_default}" id="poster">`)
     $('#parent').append(`<div>NO. ${pokeData.id}</div>`)
-    $('#parent').append(`<div>NAME: ${pokeData.name}</div>`)
-    $('#parent').append(`<div>HEIGHT: ${pokeData.height}</div>`)
-    $('#parent').append(`<div>WEIGHT: ${pokeData.weight}</div>`)
+    $('#parent').append(`<div>NAME: ${capitalize(pokeData.name)}</div>`)
+    $('#parent').append(`<div>HEIGHT: ${pokeData.height * 10} cm</div>`)
+    $('#parent').append(`<div>WEIGHT: ${(pokeData.weight / 4.536).toFixed(2)} lbs</div>`)
     abilitiesRender(pokeData.abilities)
     movesRender(pokeData.moves)
 }
@@ -31,14 +31,14 @@ function render() {
 function abilitiesRender(data) {
     $('#parent').append(`<div id="ability">ABILITIES: </div>`)
     for (let i = 0; i < data.length; i++) {
-        $('#ability').append(`${data[i].ability.name} | `)
+        $('#ability').append(`${capitalize(data[i].ability.name)} | `)
     }
 }
 
 function movesRender(data) {
     $('#parent').append(`<div id="moveset">MOVES: </div>`)
     for (let i = 0; i < data.length; i++) {
-        $('#moveset').append(`${data[i].move.name} | `)
+        $('#moveset').append(`${capitalize(data[i].move.name)} | `)
     }
 }
 
@@ -49,6 +49,9 @@ function clear() {
     }
 }
 
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 window.onscroll = function() {
     stickyNav()
