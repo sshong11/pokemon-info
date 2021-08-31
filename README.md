@@ -7,6 +7,14 @@ has: sticky nav
 
 ### Live Site: https://sshong11.github.io/pokemon-info/
 
+## Technologies Used:
+* HTML
+* CSS
+* jQuery
+* AJAX
+* Google Fonts
+* PokeAPI
+
 ## work on:
 
 * mobile-friendly
