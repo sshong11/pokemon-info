@@ -24,8 +24,16 @@ function render() {
     $('#parent').append(`<div>NAME: ${capitalize(pokeData.name)}</div>`)
     $('#parent').append(`<div>HEIGHT: ${(pokeData.height * 10 / 30.48).toFixed(2)} feet | ${(pokeData.height * 10 )} cm</div>`)
     $('#parent').append(`<div>WEIGHT: ${(pokeData.weight / 4.536).toFixed(2)} lbs | ${(pokeData.weight / 10)} kg</div>`)
+    typesRender(pokeData.types)
     abilitiesRender(pokeData.abilities)
     movesRender(pokeData.moves)
+}
+
+function typesRender(data) {
+    $('#parent').append(`<div id="type">TYPE: </div>`)
+    for (let i = 0; i < data.length; i++) {
+        $('#type').append(`${capitalize(data[i].type.name)} | `)
+    }
 }
 
 function abilitiesRender(data) {
