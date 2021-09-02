@@ -71,6 +71,8 @@ div {
 
 table {
     border-collapse: collapse;
+    table-layout: auto;
+    width: 70%;
 }
 
 td, th {
@@ -80,5 +82,5 @@ td, th {
 }
 
 tr {
-    background-color: white;
+    background-color: aliceblue;
 }
