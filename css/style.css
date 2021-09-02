@@ -84,3 +84,13 @@ td, th {
 tr {
     background-color: aliceblue;
 }
+
+#poster {
+    width: 10%;
+    height: 10%;
+}
+
+#error {
+    font-family: 'Times New Roman', Times, serif;
+    color: red;
+}
