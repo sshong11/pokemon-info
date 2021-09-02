@@ -1,6 +1,8 @@
 body {
     margin: 0px;
     padding: 0px;
+    background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url(https://www.kindpng.com/picc/m/135-1352142_pokeballs-in-catching-rate-order-gen-pixel-art.png);
+    background-size: 5%;
 }
 
 #title {
@@ -17,6 +19,7 @@ nav {
     color: white;
     display: flex;
     justify-content: space-around;
+    margin-bottom: 10px;
 }
 
 nav a {
@@ -71,4 +74,8 @@ td, th {
     border: 1px solid black;
     text-align: center;
     padding: 8px;
+}
+
+tr {
+    background-color: white;
 }
