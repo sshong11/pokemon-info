@@ -1,5 +1,27 @@
 let pokeData
 
+fetch('https://pokeapi.co/api/v2/pokemon-species/?limit=0').then(response => response.json()).then(function(data) {
+    var pokeCount = data.count
+    if ($('body').is('.allpoke')) {
+        for (let i = 1; i <= pokeCount; i++) {
+            fetch(`https://pokeapi.co/api/v2/pokemon/${i}`).then(response => response.json()).then(function(data) {
+                pokeData = data
+                renderTable()
+            })
+            // $.ajax({url:`https://pokeapi.co/api/v2/pokemon/${i}`}).then(
+            // function(data) {
+            //     pokeData = data
+            //     clear()
+            //     renderTable()
+            // },
+    
+            // function(error) {
+            //     console.log("there was an error: ", error)
+            // })
+        }
+    }
+})
+
 $input = $('input[type="text"]')
 
 function handleGetData(event) {
@@ -17,7 +39,7 @@ function handleGetData(event) {
         }
     )
 }
-
+    
 function render() {
     $('#parent').append(`<img src="${pokeData.sprites.front_default}" id="poster">`)
     $('#parent').append(`<div>NO. ${pokeData.id}</div>`)
@@ -36,11 +58,27 @@ function typesRender(data) {
     }
 }
 
+function typesRTD(data) {
+    var str = ""
+    for (let i = 0; i < data.length; i++) {
+        str += `${capitalize(data[i].type.name)} <br>`
+    }
+    return str
+}
+
 function abilitiesRender(data) {
     $('#parent').append(`<div id="ability">ABILITIES: </div>`)
     for (let i = 0; i < data.length; i++) {
         $('#ability').append(`${capitalize(data[i].ability.name)} | `)
     }
+}
+
+function abilitiesRTD(data) {
+    var str = ""
+    for (let i = 0; i < data.length; i++) {
+        str += `${capitalize(data[i].ability.name)} <br>`
+    }
+    return str
 }
 
 function movesRender(data) {
@@ -56,6 +94,24 @@ function clear() {
         divs[i].innerHTML = ""
     }
 }
+
+function renderTable() {
+    $('table').append(`<tr>
+    <td>${pokeData.id}</td>
+    <td><img src="${pokeData.sprites.front_default}" id="poster"></td>
+    <td>${capitalize(pokeData.name)}</td>
+    <td>${typesRTD(pokeData.types)}</td>
+    <td>${abilitiesRTD(pokeData.abilities)}</td>
+    </tr>`)
+}
+
+// function createPokeTD(data) {
+//     for (let i = 0; i < 152; i++) {
+//         $.ajax({url:`https://pokeapi.co/api/v2/pokemon/${i}`}).then(
+
+//         )
+//     }
+// }
 
 function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -77,3 +133,4 @@ function stickyNav() {
 }
 
 $('form').on('submit', handleGetData)
+
