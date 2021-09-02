@@ -3,6 +3,7 @@ body {
     padding: 0px;
     background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url(https://www.kindpng.com/picc/m/135-1352142_pokeballs-in-catching-rate-order-gen-pixel-art.png);
     background-size: 5%;
+    font-family: 'Lato', sans-serif;
 }
 
 #title {
@@ -48,14 +49,16 @@ a {
 
 #parent {
     padding: 10px;
+    font-weight: bold;
+    text-align: center;
 }
 
 h1 {
-    padding: 0px 10px 10px 10px;
+    text-align: center;
 }
 
 main {
-    padding: 0px 0px 0px 10px;
+    text-align: center;
 }
 
 h2 {
