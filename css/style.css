@@ -57,6 +57,17 @@ h1 {
     text-align: center;
 }
 
+@keyframes fadeDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+     }
+     100% {
+        opacity: 1;
+        transform: translateY(0);
+     }
+}
+
 main {
     text-align: center;
 }
@@ -85,7 +96,7 @@ tr {
     background-color: aliceblue;
 }
 
-#poster {
+#poster, #poster2 {
     width: 10%;
     height: 10%;
 }
@@ -129,7 +140,7 @@ p, a {
         font-size: 3vmin;
     }
 
-    #poster {
+    #poster, #poster2 {
         width: 20vmax;
         height: 20vmax;
     }

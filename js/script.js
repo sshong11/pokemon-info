@@ -33,14 +33,18 @@ function handleGetData(event) {
 }
     
 function render() {
-    $('#parent').append(`<img src="${pokeData.sprites.front_default}" id="poster"><img src="${pokeData.sprites.front_shiny}" id="poster">`)
-    $('#parent').append(`<div>NO. ${pokeData.id}</div>`)
-    $('#parent').append(`<div>NAME: ${capitalize(pokeData.name)}</div>`)
-    $('#parent').append(`<div>HEIGHT: ${(pokeData.height * 10 / 30.48).toFixed(2)} feet | ${(pokeData.height * 10 )} cm</div>`)
-    $('#parent').append(`<div>WEIGHT: ${(pokeData.weight / 4.536).toFixed(2)} lbs | ${(pokeData.weight / 10)} kg</div>`)
+    $('#parent').append(`<img src="${pokeData.sprites.front_default}" id="poster"><img src="${pokeData.sprites.front_shiny}" id="poster2">`)
+    $('#parent').append(`<div class="info">NO. ${pokeData.id}</div>`)
+    $('#parent').append(`<div class="info">NAME: ${capitalize(pokeData.name)}</div>`)
+    $('#parent').append(`<div class="info">HEIGHT: ${(pokeData.height * 10 / 30.48).toFixed(2)} feet | ${(pokeData.height * 10 )} cm</div>`)
+    $('#parent').append(`<div class="info">WEIGHT: ${(pokeData.weight / 4.536).toFixed(2)} lbs | ${(pokeData.weight / 10)} kg</div>`)
     typesRender(pokeData.types)
     abilitiesRender(pokeData.abilities)
     movesRender(pokeData.moves)
+    $('#poster').css("animation", "fadeDown ease 1s")
+    $('#poster2').css("animation", "fadeDown ease 1s")
+    $('.info').css("animation", "fadeDown ease 2.5s")
+    $('#movestable').css("animation", "fadeDown ease 3s")
 }
 
 function errorMsg() {
@@ -48,7 +52,7 @@ function errorMsg() {
 }
 
 function typesRender(data) {
-    $('#parent').append(`<div id="type">TYPE: </div>`)
+    $('#parent').append(`<div id="type" class="info">TYPE: </div>`)
     for (let i = 0; i < data.length; i++) {
         if (i === data.length - 1) {
             $('#type').append(`${capitalize(data[i].type.name)}`)
@@ -67,7 +71,7 @@ function typesRTD(data) {
 }
 
 function abilitiesRender(data) {
-    $('#parent').append(`<div id="ability">ABILITIES: </div>`)
+    $('#parent').append(`<div id="ability" class="info">ABILITIES: </div>`)
     for (let i = 0; i < data.length; i++) {
         if (i === data.length - 1) {
             $('#ability').append(`${capitalize(data[i].ability.name)}`)
@@ -97,6 +101,9 @@ function movesRender(data) {
     for (let i = 0; i < (data.length / 4); i++) {
         $('#movestable').append(`<tr id="moveset"></tr>`)
         for (let j = count; j < count + 4; j++) {
+            if (j >= data.length) {
+                break
+            }
             $(`tr`).last().append(`<td>${capitalize(data[j].move.name)}</td>`)
         }
         count += 4
