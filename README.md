@@ -18,6 +18,3 @@ has: sticky nav
 ## work on:
 
 * mobile-friendly
-* styling for main
-
-* additional pages
