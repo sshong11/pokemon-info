@@ -100,6 +100,11 @@ p, a {
     font-size: 24px;
 }
 
+#movestable {
+    margin-top: 15px;
+    table-layout: fixed;
+}
+
 @media screen and (max-width: 1024px) {
     #title {
         background-image: url(https://wallup.net/wp-content/uploads/2017/10/25/484105-anime-Pok%C3%A9mon_trainers-Pok%C3%A9mon-pixel_art-pixels.jpg);

@@ -78,9 +78,20 @@ function abilitiesRTD(data) {
 }
 
 function movesRender(data) {
-    $('#parent').append(`<div id="moveset">MOVES: </div>`)
-    for (let i = 0; i < data.length; i++) {
-        $('#moveset').append(`${capitalize(data[i].move.name)} | `)
+    // $('#parent').append(`<div id="moveset">MOVES: </div>`)
+    // for (let i = 0; i < data.length; i++) {
+    //     $('#moveset').append(`${capitalize(data[i].move.name)} | `)
+    // }
+
+    $('#parent').append(`<table id="movestable" align="center"><th id="movesth" colspan="4">MOVES</th></table>`)
+    // $('#parent').append(`<th id="movesth" colspan="4">MOVES</th>`)
+    let count = 0
+    for (let i = 0; i < (data.length / 4); i++) {
+        $('#movestable').append(`<tr id="moveset"></tr>`)
+        for (let j = count; j < count + 4; j++) {
+            $(`tr`).last().append(`<td>${capitalize(data[j].move.name)}</td>`)
+        }
+        count += 4
     }
 }
 
