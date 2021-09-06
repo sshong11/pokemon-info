@@ -50,7 +50,11 @@ function errorMsg() {
 function typesRender(data) {
     $('#parent').append(`<div id="type">TYPE: </div>`)
     for (let i = 0; i < data.length; i++) {
-        $('#type').append(`${capitalize(data[i].type.name)} | `)
+        if (i === data.length - 1) {
+            $('#type').append(`${capitalize(data[i].type.name)}`)
+        } else {
+            $('#type').append(`${capitalize(data[i].type.name)} | `)
+        }   
     }
 }
 
@@ -65,7 +69,11 @@ function typesRTD(data) {
 function abilitiesRender(data) {
     $('#parent').append(`<div id="ability">ABILITIES: </div>`)
     for (let i = 0; i < data.length; i++) {
-        $('#ability').append(`${capitalize(data[i].ability.name)} | `)
+        if (i === data.length - 1) {
+            $('#ability').append(`${capitalize(data[i].ability.name)}`)
+        } else {
+            $('#ability').append(`${capitalize(data[i].ability.name)} | `)
+        }
     }
 }
 
