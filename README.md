@@ -3,13 +3,12 @@ Input a pokemon name or their ID number to show various details about them such 
 
 Search input is not case sensitive
 
-has: sticky nav
-
 ### Live Site: https://sshong11.github.io/pokemon-info/
 
 ## Technologies Used:
 * HTML
 * CSS
+* JavaScript
 * jQuery
 * AJAX
 * Google Fonts
@@ -17,4 +16,4 @@ has: sticky nav
 
 ## work on:
 
-* mobile-friendly
+* pagination
